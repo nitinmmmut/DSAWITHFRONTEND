@@ -15,5 +15,5 @@ var isPalindrome = function (x) {
   }
   return x === reverseNum;
 };
-console.log(isPalindrome(121));
-console.log(isPalindrome(-121));
+console.log(isPalindrome(121)); //true
+console.log(isPalindrome(-121)); //false
