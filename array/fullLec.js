@@ -95,3 +95,44 @@ console.log(arr); //[ 1, 6, 7, 8, 5, 6, 'Hello', { name: 'vishal' }, 5 ]
 
 const subArr = arr.slice(1, 4); //[start,end]
 console.log(subArr); //[6,7,8]
+
+//Shallow copy of array
+
+const arrB = arr;
+arrB.splice(1, 4);
+console.log(arrB, arr); //[ 1, 6, 'Hello', { name: 'vishal' }, 5 ] [ 1, 6, 'Hello', { name: 'vishal' }, 5 ]
+
+//Deep copy of the array
+const arrC = [...arr];
+const arrD = Array.from(arr);
+const arrE = arr.concat();
+arrC.splice(1, 4);
+arrD.splice(1, 4);
+arrE.splice(1, 3);
+console.log(arrC, arrD, arrE, arr); //[ 1 ] [ 1 ] [ 1, 5 ] [ 1, 6, 'Hello', { name: 'vishal' }, 5 ]
+
+// how to add two array in javascript?
+
+const newArr = [...arr, ...arr];
+const newArr2 = arr.concat(arrE);
+console.log(newArr, newArr2);
+
+//Q.3 How  can you check if two arrays are equal.
+
+const isArrayEqual = (arr1, arr2) => {
+  // if (arr1.length !== arr2.length) {
+  //   return false;
+  // }
+  // for (let i = 0; i < arr1.length; i++) {
+  //   if (arr1[i] !== arr2[i]) {
+  //     return false;
+  //   }
+  // }
+  // return true;
+  return (
+    arr1.length === arr2.length && arr1.every((ele, i) => arr1[i] === arr2[i])
+  );
+};
+
+console.log(isArrayEqual([1, 2, 3], [1, 2, 3])); // true
+console.log(isArrayEqual([1, 2, 3], [1, 2, 4])); // false
