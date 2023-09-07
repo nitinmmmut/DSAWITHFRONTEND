@@ -136,3 +136,36 @@ const isArrayEqual = (arr1, arr2) => {
 
 console.log(isArrayEqual([1, 2, 3], [1, 2, 3])); // true
 console.log(isArrayEqual([1, 2, 3], [1, 2, 4])); // false
+
+//Q.4: How to sort an array in ascending and descendng order?
+const x = [1, 4, 5, 0, -9, -5];
+x.sort(); //O(NlogN)
+console.log(x); //[ -5, -9, 0, 1, 4, 5 ]
+
+x.sort((a, b) => b - a);
+console.log(x); //[ 5, 4, 1, 0, -5, -9 ]
+
+// Q.5:  How to reverse an array?
+x.reverse();
+console.log(x); //[ -9, -5, 0, 1, 4, 5 ]
+
+// map , filter & reduce
+
+const newMapArr = x.map((ele, i) => ele * ele);
+console.log(newMapArr); //[ 81, 25, 0, 1, 16, 25 ]
+
+const positiveNumbers = x.filter((ele, i) => ele > 0);
+console.log(positiveNumbers); //[ 1, 4, 5 ]
+
+const sumOfArr = positiveNumbers.reduce((acc, ele) => acc + ele, 0);
+console.log(sumOfArr); //10
+
+// Flat:[1,2,3,4,5,6,7,8,9]
+const y = [1, 2, [4, 5, [6, 7]], 8, 9];
+const flatedArray = y.flat(2);
+console.log(flatedArray); //[1, 2, 4, 5,6, 7, 8, 9]
+
+// flat vs find
+
+const positiveNumber = x.find((ele, i) => ele > 0);
+console.log(positiveNumber); //1
