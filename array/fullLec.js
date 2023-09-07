@@ -165,7 +165,7 @@ const y = [1, 2, [4, 5, [6, 7]], 8, 9];
 const flatedArray = y.flat(2);
 console.log(flatedArray); //[1, 2, 4, 5,6, 7, 8, 9]
 
-// flat vs find
+// filter vs find
 
 const positiveNumber = x.find((ele, i) => ele > 0);
 console.log(positiveNumber); //1
