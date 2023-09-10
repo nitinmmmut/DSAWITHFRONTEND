@@ -69,3 +69,54 @@ console.log(availableProducts); //o/p:
 //   { name: 'iphone', price: 999, inStock: true },
 //   { name: 'Google Pixel', price: 799, inStock: true }
 // ]
+
+// Reduce in Javascript;
+
+const orders = [
+  { product: "iPhone", price: 999, quantity: 2 },
+  { product: "Samsung", price: 899, quantity: 1 },
+  { product: "iPhone", price: 799, quantity: 3 },
+];
+
+const totalAmount = orders.reduce(function (accumulator, order) {
+  return accumulator + order.price * order.quantity;
+}, 0);
+
+console.log(totalAmount); //5294
+
+//pollyfill of reduce()
+
+if (!Array.prototype.myReduce) {
+  Array.prototype.myReduce = (callback, initialValue) => {
+    let accumulator = initialValue === undefined ? this[0] : initialValue;
+    for (let i = initialValue === undefined ? 1 : 0; i < this.length; i++) {
+      accumulator = callback(accumulator, this[i], i, this);
+    }
+    return accumulator;
+  };
+}
+
+const myTotalAmount = orders.myReduce(function (accumulator, order) {
+  return accumulator + order.price * order.quantity;
+}, 0);
+
+console.log(totalAmount); // 5294
+
+// Question 1: Find the longest word length
+
+const words = ["apple", "banana", "cherry", "dragonfruit", "elderberry"];
+
+const longestWordLength = words.reduce((maxLength, word) => {
+  const currentLength = word.length;
+  return currentLength > maxLength ? currentLength : maxLength;
+}, 0);
+
+console.log(longestWordLength); //11
+
+//queston:2 find the longest word
+
+const longestWord = words.reduce((longestWord, word) => {
+  return word.length > longestWord.length ? word : longestWord;
+}, "");
+
+console.log(longestWord); // dragonfruit
