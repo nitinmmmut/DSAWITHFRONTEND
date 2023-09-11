@@ -120,3 +120,59 @@ const longestWord = words.reduce((longestWord, word) => {
 }, "");
 
 console.log(longestWord); // dragonfruit
+
+//Quetsion 3: Given an array of numbers , calculate the factorial of the largest number in the array.
+
+const numbers = [5, 2, 8, 4, 3];
+
+const largestFactorial = numbers.reduce((largest, num) => {
+  // 4!= 1*2*3*4
+
+  // let currentFactorial = num;
+  // for (let i = 1; i < num; i++) {
+  //   currentFactorial *= i;
+  // }
+
+  // In interview use another method
+
+  let currentFactorial = Array.from({ length: num })
+    .map((_, i) => i + 1)
+    .reduce((fact, val) => fact * val, 1);
+
+  return currentFactorial > largest ? currentFactorial : largest;
+}, 0);
+
+console.log(largestFactorial); //40320
+
+//Question 4: Calculate the average score of students who scored above 90.
+const students = [
+  { name: "John", score: 85 },
+  { name: "Sarah", score: 92 },
+  { name: "Michael", score: 88 },
+  { name: "Emma", score: 95 },
+  { name: "Daniel", score: 90 },
+];
+
+const aboveNintyStudentsAvg = students
+  .filter((student) => student.score > 90)
+  .reduce((acc, student, i, arr) => acc + student.score / arr.length, 0);
+
+console.log(aboveNintyStudentsAvg); //93.5
+
+//Practice Questions:
+
+// Question 5: Filter out books published before the year 2000 and return their titles
+
+const books = [
+  { title: "Book 1", year: 1998 },
+  { title: "Book 2", year: 2003 },
+  { title: "Book 3", year: 1995 },
+  { title: "Book 4", year: 2001 },
+];
+
+// Expected Output: ['Book 2', 'Book 4']
+
+// Question 6: Capitalize the first letter of each word in the array
+const strings = ["hello world", "i am openai", "welcome to javascript"];
+
+// Expected Output: ['Hello World', 'I Am Openai', 'Welcome To Javascript']
