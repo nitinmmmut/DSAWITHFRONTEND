@@ -170,9 +170,24 @@ const books = [
   { title: "Book 4", year: 2001 },
 ];
 
-// Expected Output: ['Book 2', 'Book 4']
+const bookPublishedBefore2000 = books.filter((book) => book.year < 2000);
+const bookTitlesPublishedBefore2000 = bookPublishedBefore2000.map(
+  (book) => book.title
+);
+console.log(bookTitlesPublishedBefore2000); //Output: ['Book 1', 'Book 3']
+
+// Expected Output: ['Book 1', 'Book 3']
 
 // Question 6: Capitalize the first letter of each word in the array
 const strings = ["hello world", "i am openai", "welcome to javascript"];
+
+const capitalizeTheFirstLetter = strings.map((str) =>
+  str
+    .split(" ")
+    .map((word) => word.charAt(0).toLocaleUpperCase() + word.slice(1))
+    .join(" ")
+);
+
+console.log(capitalizeTheFirstLetter); //[ 'Hello World', 'I Am Openai', 'Welcome To Javascript' ]
 
 // Expected Output: ['Hello World', 'I Am Openai', 'Welcome To Javascript']
