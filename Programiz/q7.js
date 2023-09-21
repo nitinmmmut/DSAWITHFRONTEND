@@ -9,3 +9,4 @@ console.log(b);
 
 const c = Math.floor(Math.random() * (10 - 1) + 1);
 console.log(c);
+//
